@@ -6,6 +6,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <StartupObject>WPF.App</StartupObject>
+    <ApplicationIcon>StaticFiles\emmi.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="StaticFiles\emmi.ico" />
+  </ItemGroup>
 
 </Project>

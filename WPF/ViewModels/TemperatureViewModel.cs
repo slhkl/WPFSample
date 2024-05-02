@@ -18,6 +18,8 @@ namespace WPF.ViewModels
 
         private string selectedMeasurementUnit;
 
+        private bool isCalculating;
+
         #endregion
 
         #region Properties
@@ -32,6 +34,8 @@ namespace WPF.ViewModels
             {
                 celsius = value;
                 OnPropertyChanged();
+
+                ConvertTemperatures(nameof(Celsius));
             }
         }
 
@@ -45,6 +49,8 @@ namespace WPF.ViewModels
             {
                 fahrenheit = value;
                 OnPropertyChanged();
+
+                ConvertTemperatures(nameof(Fahrenheit));
             }
         }
 
@@ -58,6 +64,8 @@ namespace WPF.ViewModels
             {
                 kelvin = value;
                 OnPropertyChanged();
+
+                ConvertTemperatures(nameof(Kelvin));
             }
         }
 
@@ -97,6 +105,7 @@ namespace WPF.ViewModels
                 return convertCommand;
             }
         }
+
         #endregion
 
         #region Methods
@@ -124,6 +133,32 @@ namespace WPF.ViewModels
                     break;
                 default:
                     throw new NotSupportedException("Wrong MeasurementUnit");
+            }
+        }
+
+        private void ConvertTemperatures(string selectedMeasurementUnit)
+        {
+            if (!isCalculating)
+            {
+                isCalculating = true;
+                switch (selectedMeasurementUnit)
+                {
+                    case nameof(Celsius):
+                        Fahrenheit = (Celsius * 9.0 / 5.0) + 32;
+                        Kelvin = Celsius + 273.15;
+                        break;
+                    case nameof(Fahrenheit):
+                        Celsius = (Fahrenheit - 32) * 5.0 / 9.0;
+                        Kelvin = Celsius + 273.15;
+                        break;
+                    case nameof(Kelvin):
+                        Celsius = Kelvin - 273.15;
+                        Fahrenheit = (Celsius * 9.0 / 5.0) + 32;
+                        break;
+                    default:
+                        throw new NotSupportedException("Wrong MeasurementUnit");
+                }
+                isCalculating = false;
             }
         }
 

@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="140" Width="240">
-    <Grid Margin="10 10 0 0">
+        Title="Temperature Converter Emmi" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight"
+        >
+
+    <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <!--<RowDefinition Height="Auto"/>-->
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -28,9 +33,9 @@
             <TextBox Name="txtKelvin" HorizontalAlignment="Left" Width="120" Height="23" Margin="100 0 0 0" TextWrapping="Wrap" Text="{Binding Kelvin}"/>
         </Grid>
 
-        <Grid Grid.Row="3">
+        <!--<Grid Grid.Row="3">
             <Button Content="Convert" HorizontalAlignment="Left" Width="75" Height="23" Command="{Binding ConvertCommand}"/>
             <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Width="120" Height="23" Margin="100 0 0 0" Text="{Binding SelectedMeasurementUnit}" ItemsSource="{Binding MeasurementUnitList}"/>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Window>
