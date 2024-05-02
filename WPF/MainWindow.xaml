@@ -1,0 +1,36 @@
+﻿<Window x:Class="WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="140" Width="240">
+    <Grid Margin="10 10 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Label Content="Celsius:" HorizontalAlignment="Left" />
+            <TextBox Name="txtCelsius" HorizontalAlignment="Left" Width="120" Height="23" Margin="100 0 0 0" TextWrapping="Wrap" Text="{Binding Celsius}"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Label Content="Fahrenheit:" HorizontalAlignment="Left" />
+            <TextBox Name="txtFahrenheit" HorizontalAlignment="Left" Width="120" Height="23" Margin="100 0 0 0" TextWrapping="Wrap" Text="{Binding Fahrenheit}"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Label Content="Kelvin:" HorizontalAlignment="Left" />
+            <TextBox Name="txtKelvin" HorizontalAlignment="Left" Width="120" Height="23" Margin="100 0 0 0" TextWrapping="Wrap" Text="{Binding Kelvin}"/>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Button Content="Convert" HorizontalAlignment="Left" Width="75" Height="23" Command="{Binding ConvertCommand}"/>
+            <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Width="120" Height="23" Margin="100 0 0 0" Text="{Binding SelectedMeasurementUnit}" ItemsSource="{Binding MeasurementUnitList}"/>
+        </Grid>
+    </Grid>
+</Window>
